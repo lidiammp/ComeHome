@@ -3,25 +3,28 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float MovementSpeed = 1;
-    public float JumpForce = 1;
-
-    private Rigidbody2D _rigidbody;
+    public float MovementSpeed = 5;
+    public float JumpForce = 5;
+        private Rigidbody2D rb;
 
   private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+       
     }
 
-    
-    void Update()
+
+     void Update()
     {
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
-
-      if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
         {
-            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
     }
+       
+
+    
 }
