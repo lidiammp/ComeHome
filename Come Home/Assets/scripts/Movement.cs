@@ -14,11 +14,13 @@ public class Movement : MonoBehaviour
 
     public Transform wallGrabPoint;
     private bool canGrab, isGrabbing;
-    public LayerMask whatisGround;
+    public LayerMask whatisGrabbable;
     private bool isGrounded;
     private float gravityStore;
     public float wallJumpTime = .2f;
     private float wallJumpCounter;
+
+    
 
     //health 
     public int curHealth;
@@ -71,7 +73,7 @@ public class Movement : MonoBehaviour
 
             }
             //handle wall jumping 
-            canGrab = Physics2D.OverlapCircle(wallGrabPoint.position, .2f, whatisGround);
+            canGrab = Physics2D.OverlapCircle(wallGrabPoint.position, .2f, whatisGrabbable);
 
             isGrabbing = false;
             if (canGrab && !isGrounded)
@@ -104,24 +106,16 @@ public class Movement : MonoBehaviour
             wallJumpCounter -= Time.deltaTime;
         }
 
-        if (inputHorizontal > 0)
+       if (rb.velocity.x > 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (inputHorizontal < 0)
-        {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = Vector3.one;
+        } else if (rb.velocity.x < 0)
+            {
+            transform.localScale = new Vector3(-1, 1, 1f);
         }
 
-        if (inputVertical > 0)
-        {
-            gameObject.transform.localScale = new Vector2(1, 1);
-        }
-        if (inputVertical < 0)
-        {
-            gameObject.transform.localScale = new Vector2(1, -1);
-        }
     }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "obs")
@@ -131,7 +125,7 @@ public class Movement : MonoBehaviour
         }
     }
 }
-     
+
 
 
 
