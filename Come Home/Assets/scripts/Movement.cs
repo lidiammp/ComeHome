@@ -121,7 +121,7 @@ public class Movement : MonoBehaviour
         if (other.tag == "obs")
         {
             Debug.Log("Dead!");
-            Application.LoadLevel(0);
+            Application.LoadLevel(1);
         }
     }
 }
