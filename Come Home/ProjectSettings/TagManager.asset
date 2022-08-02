@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - grabbable
+  - FsllDetector
+  - FallDetector
+  - ground
+  - Wall
+  - obs
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -14,8 +20,8 @@ TagManager:
   - UI
   - PickUp
   - Grabbed
-  - 
-  - 
+  - Ground
+  - wall
   - 
   - 
   - 
