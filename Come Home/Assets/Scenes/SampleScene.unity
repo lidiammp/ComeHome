@@ -1634,7 +1634,7 @@ MonoBehaviour:
   target: {fileID: 473018965}
   followAhead: 3
   smoothing: 5
-  followTarget: 0
+  followTarget: 1
 --- !u!1 &568990954
 GameObject:
   m_ObjectHideFlags: 0
