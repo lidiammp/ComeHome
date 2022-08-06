@@ -38,7 +38,8 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Verticle");
+        inputVertical = Input.GetAxisRaw("Vertical");
+        
 
     }
 
