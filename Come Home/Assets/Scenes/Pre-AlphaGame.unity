@@ -1432,7 +1432,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f8b26ad6f63699a44a11dd6cfdff18fd, type: 3}
   m_Color: {r: 0.990566, g: 0.9687611, b: 0.9687611, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -1451,7 +1451,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.93, y: -2.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 673562990}
   - {fileID: 1596929207}
@@ -1792,10 +1792,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7592bc4fd38a0034eb0c9d1f6cad30fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 473018965}
-  followAhead: 3
-  smoothing: 5
-  followTarget: 1
+  player: {fileID: 473018969}
+  cameraSpeedx: 0
+  cameraSpeedy: 0
+  xRatio: 0.18
+  yRatio: 0.25
 --- !u!1 &535052427
 GameObject:
   m_ObjectHideFlags: 0
