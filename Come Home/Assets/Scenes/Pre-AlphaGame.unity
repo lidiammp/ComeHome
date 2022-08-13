@@ -1792,10 +1792,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7592bc4fd38a0034eb0c9d1f6cad30fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 473018965}
-  followAhead: 3
-  smoothing: 5
-  followTarget: 1
+  player: {fileID: 473018969}
+  cameraSpeedx: 0
+  cameraSpeedy: 0
+  xRatio: 0.18
+  yRatio: 0.25
 --- !u!1 &535052427
 GameObject:
   m_ObjectHideFlags: 0
