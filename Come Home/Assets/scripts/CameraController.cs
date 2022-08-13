@@ -1,4 +1,52 @@
+/*
 
+using UnityEngine;
+using System.Collections;
+
+public class CameraController : MonoBehaviour
+{
+
+	public GameObject target;
+	public float followAhead;
+	private Vector3 targetPosition;
+	public float smoothing;
+
+	public bool followTarget;
+
+
+
+	// Use this for initialization
+	void Start()
+	{
+		followTarget = true;
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		if (followTarget)
+		{
+			targetPosition = new Vector3(target.transform.position.x, transform.position.y, transform.position.z);
+
+			if (target.transform.localScale.x > 0f)
+			{
+				targetPosition = new Vector3(targetPosition.x + followAhead, targetPosition.y, targetPosition.z);
+			}
+			else
+			{
+				targetPosition = new Vector3(targetPosition.x - followAhead, targetPosition.y, targetPosition.z);
+			}
+
+			//transform.position = targetPosition;
+			transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime); //make camera smooth by lerping 
+		}
+
+	}
+
+
+
+
+}*/
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +62,7 @@ public class CameraController : MonoBehaviour
     public float xRatio = 0.18f;
     public float yRatio = 0.25f;
 
-     void Update()
+    void Update()
     {
 
         float cameraPosX = transform.position.x;
@@ -31,10 +79,11 @@ public class CameraController : MonoBehaviour
             if (cameraPosX < player.position.x)
             {
                 transform.position += new Vector3(cameraSpeedx * Time.deltaTime, 0);
-            } else
+            }
+            else
             {
                 transform.position -= new Vector3(cameraSpeedx * Time.deltaTime, 0);
-        }
+            }
         }
         if (distanceY > 1)
         {

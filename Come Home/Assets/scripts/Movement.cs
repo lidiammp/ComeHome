@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public float wallJumpTime = .2f;
     private float wallJumpCounter;
 
-    
+    public Animator animator;
 
     //health 
     public int curHealth;
@@ -51,6 +51,7 @@ public class Movement : MonoBehaviour
             var movement = Input.GetAxisRaw("Horizontal");
             transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
+            animator.SetFloat("Speed", Mathf.Abs(movement)); //when the player is moving, run animation plays
 
 
             if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
