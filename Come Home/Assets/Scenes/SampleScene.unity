@@ -1086,6 +1086,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &473018978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+  m_PrefabInstance: {fileID: 8256641365609129764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473018965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08385cb422d07a64d947389507e49f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &479820194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7446397739311460632, guid: 9b766a1d943d0484f8d6d4f91ad5dfb6, type: 3}
@@ -5186,6 +5197,34 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 473018975}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 473018978}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLanding
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Movement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256641365540869496, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8256641365540869500, guid: d8d88f87404b79b4e8a43d83fd5945cc, type: 3}
       propertyPath: m_Color.b
       value: 1

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 public class Movement : MonoBehaviour
 
 {
@@ -20,7 +21,14 @@ public class Movement : MonoBehaviour
     public float wallJumpTime = .2f;
     private float wallJumpCounter;
 
+    public UnityEvent OnLandEvent;
     public Animator animator;
+
+
+    
+    public class BoolEvent : UnityEvent<bool> { }
+
+    
 
     //health 
     public int curHealth;
@@ -57,6 +65,7 @@ public class Movement : MonoBehaviour
             if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
             {
                 isJumping = true;
+                animator.SetBool("isJumping", true); //signal to animations that we're jumping
                 jumpTime = jumpStartTime;
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             }
@@ -71,6 +80,7 @@ public class Movement : MonoBehaviour
                 else
                 {
                     isJumping = false;
+                    animator.SetBool("isJumping", false);
                 }
 
             }
@@ -116,6 +126,11 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1f);
         }
 
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("isJumping", false);
     }
     
     void OnTriggerEnter2D(Collider2D other)
