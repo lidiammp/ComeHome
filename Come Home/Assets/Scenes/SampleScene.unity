@@ -2239,6 +2239,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6264751134037275645, guid: 74d84d5a9a40e2b45aa21a2b0b6901cc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264751134037275645, guid: 74d84d5a9a40e2b45aa21a2b0b6901cc, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d84d5a9a40e2b45aa21a2b0b6901cc, type: 3}
 --- !u!1001 &1137580329
