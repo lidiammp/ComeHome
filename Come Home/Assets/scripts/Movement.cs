@@ -107,7 +107,7 @@ public class Movement : MonoBehaviour
                 rb.velocity = Vector2.up * JumpForce;
             }
 
-            //if you hit the ground, you regain your jump
+            //if you hit the ground, you regain your jump [BUG: if collide with a wall, it slows you slow down to 0, allowing you to wall jump off of any surface]
             if(Mathf.Abs(rb.velocity.y) == 0f)
             {
                 isJumping = false;
