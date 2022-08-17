@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public UnityEvent OnLandEvent;
     public Animator animator;
 
+    public float velocity = 5; 
 
     
     public class BoolEvent : UnityEvent<bool> { }
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
     //health 
     public int curHealth;
     public int maxHealth = 5;
+    public float movement;
 
     private void Start()
     {
@@ -47,8 +49,6 @@ public class Movement : MonoBehaviour
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         inputVertical = Input.GetAxisRaw("Vertical");
-        
-
     }
 
     private void Update()
@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
         if (wallJumpCounter <= 0)
         {
 
-            var movement = Input.GetAxisRaw("Horizontal");
+            movement = Input.GetAxisRaw("Horizontal");
             transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
             animator.SetFloat("Speed", Mathf.Abs(movement)); //when the player is moving, run animation plays
@@ -118,12 +118,13 @@ public class Movement : MonoBehaviour
             wallJumpCounter -= Time.deltaTime;
         }
 
-       if (rb.velocity.x > 0)
+       //flips player direction around based on movement
+        if (movement == 1)
         {
-            transform.localScale = Vector3.one;
-        } else if (rb.velocity.x < 0)
+            transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        } else if (movement == -1)
             {
-            transform.localScale = new Vector3(-1, 1, 1f);
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
         }
 
     }
