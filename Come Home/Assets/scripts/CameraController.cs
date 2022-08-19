@@ -59,6 +59,8 @@ public class CameraController : MonoBehaviour
     public float cameraSpeedx;
     public float cameraSpeedy;
 
+    public float smoothing = 0.1f;
+
     public float xRatio = 0.18f;
     public float yRatio = 0.25f;
 
