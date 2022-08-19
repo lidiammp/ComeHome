@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float jumpStartTime;
     private float jumpTime;
-    private bool isJumping = false;
+    public bool isJumping = false;
     bool isTouchingFront;
     float inputHorizontal;
     private float inputVertical;
@@ -16,7 +16,12 @@ public class Movement : MonoBehaviour
     public Transform wallGrabPoint;
     public bool canGrab, isGrabbing;
     public LayerMask whatisGrabbable;
+
     private bool isGrounded;
+    public BoxCollider2D groundCheck;
+    public LayerMask whatIsGround;
+    public bool isTouchingGround = true;
+
     private float gravityStore;
     public float wallJumpTime = .2f;
     private float wallJumpCounter = 0;
@@ -47,12 +52,16 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Vertical");
+        
     }
 
     private void Update()
     {
+
+        isTouchingGround = groundCheck.IsTouchingLayers(whatIsGround); //[NOT WORKING] Always shows false even when it is overlapping the "Ground" layer
+
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        inputVertical = Input.GetAxisRaw("Vertical");
         //move when based on the Axis Input
         movement = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
@@ -93,10 +102,11 @@ public class Movement : MonoBehaviour
             isGrabbing = false;
             if (canGrab && !isGrounded)
             {
-                if ((transform.localScale.x == 1f && Input.GetAxisRaw("Horizontal") > 0) || (transform.localScale.x == -1f && Input.GetAxisRaw("Horizontal") < 0))
+                isGrabbing = true;
+                /*if ((transform.localScale.x == 1f && Input.GetAxisRaw("Horizontal") > 0) || (transform.localScale.x == -1f && Input.GetAxisRaw("Horizontal") < 0))
                 {
                     isGrabbing = true;
-                }
+                }*/
             }
 
             //jump code-- allows you to jump once, or multiple if you're holding onto the wall
@@ -108,7 +118,8 @@ public class Movement : MonoBehaviour
             }
 
             //if you hit the ground, you regain your jump [BUG: if collide with a wall, it slows you slow down to 0, allowing you to wall jump off of any surface]
-            if(Mathf.Abs(rb.velocity.y) == 0f)
+
+            if(Mathf.Abs(rb.velocity.y) == 0f && groundCheck.IsTouchingLayers(whatIsGround))
             {
                 isJumping = false;
                 animator.SetBool("isJumping", false);
@@ -151,6 +162,8 @@ public class Movement : MonoBehaviour
 
         }
     }
+
+
 
     public void OnLanding()
     {
