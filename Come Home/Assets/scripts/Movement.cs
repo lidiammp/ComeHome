@@ -69,32 +69,33 @@ public class Movement : MonoBehaviour
         //when the player is moving, run animation plays
         animator.SetFloat("Speed", Mathf.Abs(movement));
 
+        /*var movement = Input.GetAxisRaw("Horizontal");
+            transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+
+            animator.SetFloat("Speed", Mathf.Abs(movement)); //when the player is moving, run animation plays
+
+
+            if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
+            {
+                isJumping = true;
+                jumpTime = jumpStartTime;
+                rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            }
+
+            if (Input.GetButton("Jump") && isJumping == true)
+            {
+                if (jumpTime > 0)
+                {
+                    rb.velocity = Vector2.up * JumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }*/
+
         if (wallJumpCounter <= 0)
         {
-            //if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f) //if button jumped and you're in the air
-            //{
-            //    isJumping = true;
-            //    animator.SetBool("isJumping", true); //signal to animations that we're jumping
-
-            //    jumpTime = jumpStartTime;
-            //    rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-            //}
-
-            //if (Input.GetButton("Jump") && isJumping == true)
-            //{
-            //    if (jumpTime > 0)
-            //    {
-            //        rb.velocity = Vector2.up * JumpForce;
-            //        jumpTime -= Time.deltaTime;
-            //    }
-            //    else
-            //    {
-            //        isJumping = false;
-            //        animator.SetBool("isJumping", false);
-            //    }
-
-            //}
-
             //handle wall jumping 
             canGrab = Physics2D.OverlapCircle(wallGrabPoint.position, .2f, whatisGrabbable);
 
@@ -103,18 +104,29 @@ public class Movement : MonoBehaviour
             if (canGrab && !isGrounded)
             {
                 isGrabbing = true;
-                /*if ((transform.localScale.x == 1f && Input.GetAxisRaw("Horizontal") > 0) || (transform.localScale.x == -1f && Input.GetAxisRaw("Horizontal") < 0))
-                {
-                    isGrabbing = true;
-                }*/
             }
 
             //jump code-- allows you to jump once, or multiple if you're holding onto the wall
             if ((Input.GetButtonDown("Jump") && !isJumping) || (Input.GetButtonDown("Jump") && isJumping && isGrabbing))
             { //if you press jump, and you are not jumping OR if you press jump, you are jumping, and you're holding onto the wall
                 isJumping = true;
+                jumpTime = jumpStartTime;
                 animator.SetBool("isJumping", true); //signal to animations that we're jumping
                 rb.velocity = Vector2.up * JumpForce;
+            }
+
+            //hold to jump code-- allows you to hold the jump button for the length of "JumpTime"
+            if (Input.GetButton("Jump"))
+            {
+                if(jumpTime > 0)
+                {
+                    rb.velocity = Vector2.up * JumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                //else
+                //{
+                //    //isJumping = false;
+                //}
             }
 
             //if you hit the ground, you regain your jump [BUG: if collide with a wall, it slows you slow down to 0, allowing you to wall jump off of any surface]
@@ -125,32 +137,6 @@ public class Movement : MonoBehaviour
                 animator.SetBool("isJumping", false);
             }
 
-
-
-            //    if (isGrabbing)
-            //    {
-            //        rb.gravityScale = 0f;
-            //        rb.velocity = Vector2.zero;
-            //        if (Input.GetButtonDown("Jump"))
-            //        {
-            //            wallJumpCounter = wallJumpTime;
-
-            //            rb.velocity = new Vector2(-Input.GetAxisRaw("Horizontal") * MovementSpeed, JumpForce);
-            //            rb.gravityScale = gravityStore;
-            //            isGrabbing = false;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        rb.gravityScale = gravityStore;
-            //    }
-            //}
-            //else
-            //{
-            //    wallJumpCounter -= Time.deltaTime;
-            //}
-
-            //flips player direction based on the player's left/right inputs
             if (movement == 1)
             {
                 transform.localScale = new Vector3(1.5f, 1.5f, 1f);
