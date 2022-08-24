@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
 {
     public float MovementSpeed = 5;
     public float JumpForce = 5;
+    public float HighJumpForce = 2;
     private Rigidbody2D rb;
     public float jumpStartTime;
     private float jumpTime;
@@ -107,26 +108,32 @@ public class Movement : MonoBehaviour
             }
 
             //jump code-- allows you to jump once, or multiple if you're holding onto the wall
-            if ((Input.GetButtonDown("Jump") && !isJumping) || (Input.GetButtonDown("Jump") && isJumping && isGrabbing))
+            if ((Input.GetButtonDown("Jump") && isTouchingGround) || (Input.GetButtonDown("Jump") && isJumping && isGrabbing))
             { //if you press jump, and you are not jumping OR if you press jump, you are jumping, and you're holding onto the wall
                 isJumping = true;
                 jumpTime = jumpStartTime;
                 animator.SetBool("isJumping", true); //signal to animations that we're jumping
                 rb.velocity = Vector2.up * JumpForce;
+                print("jump");
             }
 
             //hold to jump code-- allows you to hold the jump button for the length of "JumpTime"
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") && isJumping == true)
             {
                 if(jumpTime > 0)
                 {
-                    rb.velocity = Vector2.up * JumpForce;
+                    rb.velocity = Vector2.up * HighJumpForce;
                     jumpTime -= Time.deltaTime;
+                    print("high jump");
                 }
-                //else
-                //{
-                //    //isJumping = false;
-                //}
+                else
+                {
+                    isJumping = false;
+                }
+            }
+            if (Input.GetButtonUp("Jump"))
+            {
+                isJumping = false;
             }
 
             //if you hit the ground, you regain your jump [BUG: if collide with a wall, it slows you slow down to 0, allowing you to wall jump off of any surface]
