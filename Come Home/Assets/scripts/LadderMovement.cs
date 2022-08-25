@@ -5,7 +5,9 @@ public class LadderMovement : MonoBehaviour
     private float vertical;
     private float speed = 8f;
     private bool isLadder;
-    private bool isClimbing;
+    public bool isClimbing;
+
+    public Animator animator;
 
     [SerializeField] private Rigidbody2D rb;
 
@@ -16,6 +18,8 @@ public class LadderMovement : MonoBehaviour
         if (isLadder && Mathf.Abs(vertical) > 0f)
         {
             isClimbing = true;
+            animator.SetBool("isClimbing", true);
+            animator.SetBool("isJumping", false);
         }
     }
 
@@ -37,6 +41,7 @@ public class LadderMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             isLadder = true;
+
         }
     }
 
@@ -46,6 +51,7 @@ public class LadderMovement : MonoBehaviour
         {
             isLadder = false;
             isClimbing = false;
+            animator.SetBool("isClimbing", false);
         }
     }
 }

@@ -26,21 +26,21 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (IsFacingRight())
+        if (IsFacingLeft())
         {
-            // Move Right
-            myRigidbody.velocity = new Vector2(moveSpeed, 0f);
+            // Move left
+            myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
 
         }
         else
         {
-            // Move left
-            myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
+            // Move right
+            myRigidbody.velocity = new Vector2(moveSpeed, 0f);
         }
     }
-    private bool IsFacingRight()
+    private bool IsFacingLeft()
     {
-        return transform.localScale.x > Mathf.Epsilon;
+        return transform.localScale.x < Mathf.Epsilon;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

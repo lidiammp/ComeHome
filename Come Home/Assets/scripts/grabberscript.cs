@@ -4,12 +4,13 @@ using System.Collections;
 public class grabberscript : MonoBehaviour
 {
 
-	public bool grabbed;
+	public bool grabbed = false;
 	RaycastHit2D hit;
 	public float distance = 2f;
 	public Transform holdpoint;
 	public float throwforce;
 	public LayerMask notgrabbed;
+	public SpriteRenderer Hand;
 
 	// Use this for initialization
 	void Start()
@@ -20,6 +21,10 @@ public class grabberscript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if(grabbed == false)
+        {
+			Hand.enabled = false;
+        }
 
 		if (Input.GetKeyDown(KeyCode.B))
 		{
@@ -33,6 +38,7 @@ public class grabberscript : MonoBehaviour
 				if (hit.collider != null && hit.collider.tag == "grabbable")
 				{
 					grabbed = true;
+					Hand.enabled = true;
 
 				}
 
@@ -42,6 +48,7 @@ public class grabberscript : MonoBehaviour
 			else if (!Physics2D.OverlapPoint(holdpoint.position, notgrabbed))
 			{
 				grabbed = false;
+				Hand.enabled = false;
 
 				if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
 				{
