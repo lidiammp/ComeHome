@@ -19,6 +19,7 @@ public class LadderMovement : MonoBehaviour
         {
             isClimbing = true;
             animator.SetBool("isClimbing", true);
+            animator.SetBool("isJumping", false);
         }
     }
 
