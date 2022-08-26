@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6123190270652599303}
   - component: {fileID: 6559858606335182608}
   - component: {fileID: 905097969792186412}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Respawn 1
-  m_TagString: Untagged
+  m_TagString: respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 2.865137}

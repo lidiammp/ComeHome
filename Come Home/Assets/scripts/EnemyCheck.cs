@@ -13,7 +13,8 @@ public class EnemyCheck : MonoBehaviour
         if (collision.GetComponent<Enemy>())
         {
             Destroy(transform.parent.gameObject);
-            SceneManager.LoadScene(Respawn);
+            //broadcast event of Player Death
+
         }
     }
 }

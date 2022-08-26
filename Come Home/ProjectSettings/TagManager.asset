@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - obs
   - Ladder
+  - respawn
   layers:
   - Default
   - TransparentFX

@@ -32,8 +32,9 @@ public class Movement : MonoBehaviour
     public UnityEvent OnLandEvent;
     public Animator animator;
 
-    public float velocity = 5; 
+    public float velocity = 5;
 
+    public Transform lastRespawn;
     
     public class BoolEvent : UnityEvent<bool> { }
 
@@ -61,7 +62,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
 
-        isTouchingGround = groundCheck.IsTouchingLayers(whatIsGround); //[NOT WORKING] Always shows false even when it is overlapping the "Ground" layer
+        isTouchingGround = groundCheck.IsTouchingLayers(whatIsGround);
 
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         inputVertical = Input.GetAxisRaw("Vertical");
@@ -167,11 +168,25 @@ public class Movement : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.tag == "respawn") //if collide with respawn square
+        {
+            lastRespawn = other.transform; //it's position becomes the player's respawn point
+            print("respawn");
+        }
+
         if (other.tag == "obs")
         {
             Debug.Log("Dead!");
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
+
+            //signal event of Player's death
+            playerDeath();
         }
+    }
+
+    public void playerDeath()
+    {
+        transform.position = lastRespawn.position; //move to the respawn point
     }
 }
 

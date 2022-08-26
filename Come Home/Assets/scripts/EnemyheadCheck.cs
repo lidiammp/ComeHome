@@ -10,7 +10,7 @@ public class EnemyheadCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         rb.velocity = new Vector2(rb.velocity.x, 0f);
-    rb.AddForce(Vector2.up* 0f);
+        rb.AddForce(Vector2.up* 0f);
     }
     
 }
