@@ -12,8 +12,9 @@ public class EnemyCheck : MonoBehaviour
     {
         if (collision.GetComponent<Enemy>())
         {
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
             //broadcast event of Player Death
+            GameEvents.current.PlayerJustDied(); //trigger the event
 
         }
     }

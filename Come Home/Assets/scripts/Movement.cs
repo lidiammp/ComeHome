@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
         //health 
         curHealth = maxHealth;
 
+        GameEvents.current.PlayerDiedEvent += playerDeath; //add method to subscribe to the PlayerDeath event 
     }
 
     void FixedUpdate()
@@ -177,10 +178,7 @@ public class Movement : MonoBehaviour
         if (other.tag == "obs")
         {
             Debug.Log("Dead!");
-            //SceneManager.LoadScene(1);
-
-            //signal event of Player's death
-            playerDeath();
+            GameEvents.current.PlayerJustDied(); //trigger the event
         }
     }
 
