@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 public class Movement : MonoBehaviour
 
 {
@@ -168,7 +170,7 @@ public class Movement : MonoBehaviour
         if (other.tag == "obs")
         {
             Debug.Log("Dead!");
-            Application.LoadLevel(1);
+            SceneManager.LoadScene(1);
         }
     }
 }
