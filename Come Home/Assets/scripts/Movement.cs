@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public float jumpStartTime;
     private float jumpTime;
     public bool isJumping = false;
+    public bool isAirborne = false;
     bool isTouchingFront;
     float inputHorizontal;
     private float inputVertical;
@@ -113,9 +114,10 @@ public class Movement : MonoBehaviour
             }
 
             //jump code-- allows you to jump once, or multiple if you're holding onto the wall
-            if ((Input.GetButtonDown("Jump") && isTouchingGround) || (Input.GetButtonDown("Jump") && isJumping && isGrabbing))
+            if ((Input.GetButtonDown("Jump") && isTouchingGround) || (Input.GetButtonDown("Jump") && isAirborne && isGrabbing))
             { //if you press jump, and you are not jumping OR if you press jump, you are jumping, and you're holding onto the wall
                 isJumping = true;
+                isAirborne = true;
                 jumpTime = jumpStartTime;
                 animator.SetBool("isJumping", true); //signal to animations that we're jumping
                 rb.velocity = Vector2.up * JumpForce;
@@ -137,11 +139,12 @@ public class Movement : MonoBehaviour
                 isJumping = false;
             }
 
-            //if you hit the ground, you regain your jump [BUG: if collide with a wall, it slows you slow down to 0, allowing you to wall jump off of any surface]
+            //if you hit the ground, you regain your jump
 
             if(Mathf.Abs(rb.velocity.y) == 0f && groundCheck.IsTouchingLayers(whatIsGround))
             {
                 isJumping = false;
+                isAirborne = false;
                 animator.SetBool("isJumping", false);
             }
 
@@ -172,7 +175,7 @@ public class Movement : MonoBehaviour
             print("respawn");
         }
 
-        if (other.tag == "obs")
+        if (other.tag == "spikes")
         {
             Debug.Log("Dead!");
             GameEvents.current.PlayerJustDied(); //trigger the event

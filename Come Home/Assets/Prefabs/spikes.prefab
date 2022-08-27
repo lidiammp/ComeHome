@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5067643881841797267}
   m_Layer: 8
   m_Name: spikes
-  m_TagString: obs
+  m_TagString: spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
