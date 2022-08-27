@@ -5,19 +5,19 @@ using UnityEngine.EventSystems;
 
 public class BoxScript : MonoBehaviour
 {
-    public Transform resetPosition;
+    public Vector2 resetPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         GameEvents.current.PlayerDiedEvent += reset; //add method to subscribe to the PlayerDeath event 
-        resetPosition.position = gameObject.transform.position;
+        resetPosition = gameObject.transform.position;
     }
 
     public void reset()
     {
         print("box reset");
-        gameObject.transform.position = resetPosition.position;
+        gameObject.transform.position = resetPosition;
     }
 
     private void OnDestroy()

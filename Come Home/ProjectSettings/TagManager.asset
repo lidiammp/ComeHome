@@ -5,13 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - grabbable
-  - FsllDetector
   - FallDetector
   - ground
   - Wall
   - obs
   - Ladder
   - respawn
+  - enemy
+  - playerFeet
   layers:
   - Default
   - TransparentFX

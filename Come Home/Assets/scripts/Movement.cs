@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
 
     private float gravityStore;
     public float wallJumpTime = .2f;
-    private float wallJumpCounter = 0;
+    public int wallJumpCounter = 0;
 
     public UnityEvent OnLandEvent;
     public Animator animator;
@@ -130,10 +130,6 @@ public class Movement : MonoBehaviour
                     rb.velocity = Vector2.up * HighJumpForce;
                     jumpTime -= Time.deltaTime;
                     print("high jump");
-                }
-                else
-                {
-                    isJumping = false;
                 }
             }
             if (Input.GetButtonUp("Jump"))
