@@ -26,7 +26,7 @@ public class grabberscript : MonoBehaviour
 			Hand.enabled = false;
         }
 
-		if (Input.GetKeyDown(KeyCode.B))
+		if (Input.GetButtonDown("Fire1"))
 		{
 
 			if (!grabbed)
