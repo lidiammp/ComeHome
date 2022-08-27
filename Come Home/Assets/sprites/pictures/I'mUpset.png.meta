@@ -234,12 +234,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2212
+        y: 2249
         width: 730
-        height: 737
+        height: 700
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 35, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -255,12 +255,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 731
-        y: 2212
-        width: 730
-        height: 737
+        y: 2249
+        width: 727
+        height: 700
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 35, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -275,13 +275,13 @@ TextureImporter:
       name: I'mUpset_8
       rect:
         serializedVersion: 2
-        x: 1460
-        y: 2212
+        x: 1458
+        y: 2248
         width: 730
-        height: 737
+        height: 700
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 35, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -297,9 +297,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1476.1667
+        y: 1475
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,9 +318,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 730
-        y: 1476.1667
+        y: 1475
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,9 +339,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1460
-        y: 1476.1667
+        y: 1475
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,9 +360,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 740.1667
+        y: 737
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +380,10 @@ TextureImporter:
       name: I'mUpset_13
       rect:
         serializedVersion: 2
-        x: 730
-        y: 740.1667
+        x: 731
+        y: 738
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,9 +402,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1460
-        y: 740.1667
+        y: 737
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,12 +423,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4.166687
+        y: 0
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 12, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -443,13 +443,13 @@ TextureImporter:
       name: I'mUpset_16
       rect:
         serializedVersion: 2
-        x: 730
-        y: 4.166687
+        x: 729
+        y: 0
         width: 730
-        height: 736.8333
+        height: 737
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 12, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -464,10 +464,10 @@ TextureImporter:
       name: I'mUpset_17
       rect:
         serializedVersion: 2
-        x: 1460
-        y: 4.166687
-        width: 730
-        height: 736.8333
+        x: 1459
+        y: 11
+        width: 720
+        height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
