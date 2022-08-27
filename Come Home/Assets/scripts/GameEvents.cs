@@ -8,6 +8,7 @@ public class GameEvents : MonoBehaviour
 {
     public static GameEvents current;
     public event Action PlayerDiedEvent;
+    public event Action EnemyDiedEvent;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,5 +20,10 @@ public class GameEvents : MonoBehaviour
     {
         PlayerDiedEvent?.Invoke();
     }
-     
+
+    public void EnemyJustDied() //checks if the event is null before invoking it
+    {
+        EnemyDiedEvent?.Invoke();
+    }
+
 }
