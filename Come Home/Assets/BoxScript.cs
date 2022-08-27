@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BoxScript : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class BoxScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        resetPosition = GetComponent<Transform>();
         GameEvents.current.PlayerDiedEvent += reset; //add method to subscribe to the PlayerDeath event 
         resetPosition.position = gameObject.transform.position;
     }
@@ -18,5 +18,10 @@ public class BoxScript : MonoBehaviour
     {
         print("box reset");
         gameObject.transform.position = resetPosition.position;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.PlayerDiedEvent -= reset; //unsubscribe
     }
 }

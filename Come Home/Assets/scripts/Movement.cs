@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class Movement : MonoBehaviour
 
@@ -185,6 +186,12 @@ public class Movement : MonoBehaviour
     public void playerDeath()
     {
         transform.position = lastRespawn.position; //move to the respawn point
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.PlayerDiedEvent -= playerDeath; //unsubscribe
+        print("destroy");
     }
 }
 
